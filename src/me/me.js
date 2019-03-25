@@ -9,12 +9,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    user_id: app.globalData.user_id,
+    user_id: null,
     userInfo: {},
     //分别为天数，次数，和金额
-    days: 256,
-    times: 13,
-    money: 1366.8
+    days: null,
+    times: null,
+    money: null,
   },
 
 
@@ -35,6 +35,9 @@ Page({
         })
       }
     })
+    this.setData({
+      user_id: app.globalData.user_id,
+    })
 
     //获取用户购物信息
     this.usergetData();
@@ -47,7 +50,7 @@ Page({
      */
     var t = this;
     wx: wx.request({
-      url: 'https://noob.chinanorth.cloudapp.chinacloudapi.cn:5000/get_general_consumption_info',
+      url: 'http://noob.chinanorth.cloudapp.chinacloudapi.cn:5000/get_general_consumption_info',
       data: {
         user_id: this.data.user_id,
       },
@@ -93,6 +96,13 @@ Page({
         }
       }
     })
+  },
+
+
+  shareBtnPressed: function() {
+    // 用户点击分享按钮
+    
+
   },
 
   /**
@@ -146,7 +156,9 @@ Page({
 
   showUserInfo: function(){
     // 切换到完善信息页面
-
+    wx.navigateTo({
+      url: '../perfectInfo/perfectInfo'
+    })
   },
 
   showShoppingHistory: function () {

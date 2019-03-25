@@ -6,15 +6,14 @@
     <text class='useridTitle'>微信id:          {{userInfo.nickName}}</text>
     <text class='userinfoTitle'>您是Noob商城的第 <text class="useridStyle">{{user_id}}</text> 位顾客</text>
   </view>
-
-
-
-
 </view>
 
 
 <view class="countContainer">
   <text class="spendCaption">消费成就</text>
+  <button class='shareBtn' bindtap='shareBtnPressed' open-type='share'>
+    <image class='shareBtnImg' src='../images/share.png' mode='scaleToFill'></image>
+  </button>
   <view class="achContainer">
     <view class="capContainer1">
       <image mode="aspectFit" src="../images/days.png" class="capPic"></image>
