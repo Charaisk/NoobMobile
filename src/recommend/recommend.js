@@ -40,7 +40,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx:wx.request({
-      url: 'http://noob.chinanorth.cloudapp.chinacloudapi.cn:5000/recommend',
+      url: 'http://noob.chinanorth.cloudapp.chinacloudapi.cn:5000/get_like_info',
       data: {
         user_id: app.globalData.user_id
       },
@@ -51,9 +51,19 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function(res) {
-        // console.log(res.data["recommends"])
-        var data_list = res.data["recommends"]
+        
+        var data_list = res.data["data"]
+        console.log(data_list)
         var res_list = []
+        // :return: res_dict = {"data": [{good_id:
+        //                                name:
+        //                                ...:
+        // 'good_id': self.good_id,
+        // 'name': self.name,
+        // 'price': self.price,
+        // 'category': self.category,
+        // 'other2': self.other2
+        //                                }],...}
         for (var i = 0; i <data_list.length; ++i)
         {
           var temp_dict = {}

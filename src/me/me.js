@@ -43,6 +43,16 @@ Page({
     this.usergetData();
   },
 
+  showGoodsInfo: function(){
+    /**
+     * 此处的操作：
+     * 跳转到我的喜欢的商品页面
+     */
+    wx.navigateTo({
+      url: '../recommend/recommend'
+    })
+  },
+
   usergetData: function () {
     /**
      * 此处的操作：
@@ -92,7 +102,7 @@ Page({
             url: '../login/login'
           })
         } else {
-          console.log('弹框后点取消')
+          // console.log('弹框后点取消')
         }
       }
     })
